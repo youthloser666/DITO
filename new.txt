@@ -1,0 +1,20 @@
+LANDING PAGE :
+
+TEXT 1 :
+IS THE ARTISTIC IDENTITY OF CUBAN PHOTOGRAPHER AND VISUAL ARTIST ANDY JAVIER BRAVO CASTAÑO (DITO).WORKING BETWEEN DOCUMENTARY PHOTOGRAPHY AND PAINTERLY INTERVENTION, HE TRANSFORMS FRAGMENTS OF BELGRADE INTO REFLECTIONS ON MEMORY, PERCEPTION, AND HUMAN EXPERIENCE.BORN FROM A JOURNEY BETWEEN CUBA AND SERBIA, HIS WORK EXPLORES HOW REALITY CAN BE REIMAGINED — TURNING WOUNDS INTO COLOR, EXPERIENCE INTO AWARENESS, AND OBSERVATION INTO TRANSFORMATION.A DOCUMENTED REALITY. A TRANSFORMED MEMORY. AN ALTERED PERCEPTION.
+TEXT 2 :
+It is about questioning how reality is perceived.For Dito, every difficult experience contains the possibility of becoming something else: a new perspective, a moment of calm, an idea, or a form of growth. His work emerges from this constant process of observation and transformation.Belgrade — the White City — becomes both subject and canvas. A city carrying its own history and wounds, yet constantly changing. Through his interventions, Dito imagines new possibilities for the places and people he encounters, leaving his own visual trace upon the city.At the center of DTO's work is the human being: the possibility of seeing oneself differently. His art seeks to awaken self-awareness, personal power, and the courage to transform one's own perception.His expression is not born from an academic institution, but from experience, intuition, and a deeply human search for inner peace.A documented reality. A transformed memory. An altered perception.DTO is an invitation to look again.Because sometimes, changing the way we see the world is the first step toward changing the world within us.
+TEXT 3 : Andy Javier Bravo Castaño — DitoAndy Javier Bravo Castaño, known artistically as Dito, is a Cuban photographer and visual artist born in Havana in 1995. With more than a decade of experience in photography, his practice explores the relationship between reality, memory, perception, and personal transformation.His artistic journey began in Cuba, where photography became a way of observing and processing a complex reality. After arriving in Belgrade, Serbia, in 2022, his perspective shifted. The city, its people, history, contrasts, and energy opened a new chapter in his creative language.Dito works primarily with documentary and street photography, using predominantly black-and-white images of Belgrade as the foundation of his work. He then intervenes directly onto the photographic surface with paint and color, creating a dialogue between what was captured and what can still be transformed.His practice, closely related to overpainting photography, is not about altering reality for decoration.
+==========================
+ganti text svg dengan text diatas , urutkan berdasarkan nomornya , gunakan font acumin pro 
+buat agar visual nya sama seperti DTO WEB-1.png , 
+DTO = pakai font MODERNIZ dan saling mepet antar font nya, menggantikan dto.svg
+==========================
+LATEST WORK :
+untuk head , ganti dengan text aja jangan pakai SVG 
+sama kaya DTO, menggunakan MODERNIZ dan mepet antar font nya
+
+==========================
+ART FOR SALE :
+ganti dengan text aja jangan pakai SVG 
+sama kaya DTO, menggunakan MODERNIZ dan mepet antar font nya

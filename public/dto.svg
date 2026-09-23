@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW (OEM Version) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.786669in" height="0.250594in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 451.41 143.8"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <font id="FontID0" horiz-adv-x="1107" font-variant="normal" style="fill-rule:nonzero" font-weight="900">
+	<font-face 
+		font-family="MODERNIZ">
+		<font-face-src>
+			<font-face-name name="MODERNIZ"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="D" horiz-adv-x="1031" d="M59.9973 0l476.001 0c277.006,0 455.002,164.002 455.002,419.995 0,256.007 -177.996,420.008 -455.002,420.008l-476.001 0 0 -840.003zm264.002 216.004l0 407.995 211.999 0c114.008,0 189.996,-83.0053 189.996,-203 0,-122.004 -75.9875,-204.995 -189.996,-204.995l-211.999 0z"/>
+   <glyph unicode="O" horiz-adv-x="1071" d="M29.9986 419.995c0,-262.997 177.006,-431.994 506,-431.994 328.003,0 506,168.997 506,431.994 0,263.011 -177.996,432.008 -506,432.008 -328.994,0 -506,-168.997 -506,-432.008zm265.006 0c0,130.012 73.0012,210.004 240.994,210.004 167.001,0 240.003,-79.9919 240.003,-210.004 0,-129.999 -73.0012,-209.99 -240.003,-209.99 -167.992,0 -240.994,79.9919 -240.994,209.99z"/>
+   <glyph unicode="T" horiz-adv-x="986" d="M362.006 0l263.988 0 0 623.999 351.011 0 0 216.004 -967.001 0 0 -216.004 352.002 0 0 -623.999z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"MODERNIZ";font-variant:normal;font-weight:900;src:url("#FontID0") format(svg)}
+    .fil0 {fill:black}
+    .fnt0 {font-weight:900;font-size:166.43px;font-family:'MODERNIZ'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g transform="matrix(1.14927 0 0 1 -463.523 -618.626)">
+   <text x="393.33" y="760.43"  class="fil0 fnt0">DTO</text>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW (OEM Version) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.383819in" height="0.0561142in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 33.7 4.93"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <font id="FontID0" horiz-adv-x="687" font-variant="normal" class="str0" style="fill-rule:nonzero" font-style="normal" font-weight="700">
+	<font-face 
+		font-family="Acumin Pro">
+		<font-face-src>
+			<font-face-name name="Acumin Pro Bold"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="A" horiz-adv-x="687" d="M463.002 158.976l57.0212 -158.976 156.979 0 -245.007 688.985 -186.988 0 -234.024 -688.985 146.994 0 53.0271 158.976 251.997 0zm-219.992 122.031c38.9952,124.974 72.9977,232.972 89.9727,300.978l0.998528 0c17.0275,-61.9613 48.0345,-154.982 97.0149,-300.978l-187.986 0z"/>
+   <glyph unicode="C" horiz-adv-x="712" d="M516.975 213.002c-12.9809,-40.9922 -42.9893,-106.002 -140.95,-106.002 -133.015,0 -174.007,122.977 -174.007,239.016 0,125.972 46.9834,236.967 169.96,236.967 94.0193,0 131.017,-52.9746 146.048,-107l148.991 0c-17.0275,116.04 -106.002,223.04 -289.994,223.04 -222.041,0 -329.041,-169.014 -329.041,-357.999 0,-196.027 103.006,-351.009 321.999,-351.009 173.008,0 270.023,93.9668 297.036,222.987l-150.042 0z"/>
+   <glyph unicode="N" horiz-adv-x="754" d="M217.995 0l0 210.006c0,122.977 -1.99706,264.978 -6.9897,324.995l1.99706 0c35.0011,-79.9874 211.005,-399.989 285.001,-535.001l175.005 0 0 688.985 -135.012 0 0 -203.963c0,-113.044 0,-233.025 7.98823,-305.024l-1.99706 0c-32.0055,74.9947 -190.982,355.003 -277.013,508.987l-184.991 0 0 -688.985 136.01 0z"/>
+   <glyph unicode="O" horiz-adv-x="764" d="M387.009 699.022c-214,0 -339.027,-154.036 -339.027,-354.005 0,-198.024 113.044,-355.003 330.04,-355.003 223.986,0 338.974,164.967 338.974,357 0,211.005 -128.022,352.008 -329.987,352.008zm-5.99117 -121.032c127.969,0 181.995,-102.008 181.995,-232.972 0,-123.029 -47.0359,-234.024 -179.998,-234.024 -122.031,0 -180.996,102.008 -180.996,237.019 0,133.96 53.9731,229.977 178.999,229.977z"/>
+   <glyph unicode="T" horiz-adv-x="587" d="M219.992 0l148.991 0 0 567.007 209.008 0 0 121.978 -568.005 0 0 -121.978 210.006 0 0 -567.007z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Acumin Pro";font-variant:normal;font-style:normal;font-weight:bold;src:url("#FontID0") format(svg)}
+    .str0 {stroke-width:40.05;stroke-miterlimit:22.9256}
+    .str1 {stroke:black;stroke-width:0.26;stroke-miterlimit:22.9256}
+    .fil0 {fill:black}
+    .fnt0 {font-weight:bold;font-size:6.58px;font-family:'Acumin Pro'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1923024334848">
+   <text x="-0.18" y="4.73"  class="fil0 str1 fnt0">CONTACT</text>
+   <path class="fil0" d="M29.42 0.91l2.92 0c-0.1,0.2 -1.39,1.43 -1.63,1.67 -0.56,0.56 -1.1,1.14 -1.67,1.67l0.53 0.54 1.66 -1.66c0.24,-0.24 1.52,-1.56 1.69,-1.65l0 2.93 0.78 0 0 -4.28 -4.28 0 0 0.78z"/>
+  </g>
+ </g>
+</svg>

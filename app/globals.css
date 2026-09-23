@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* ===== Custom Font Faces ===== */
+@font-face {
+  font-family: 'Moderniz';
+  src: url('/fonts/MODERNIZ.OTF') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Acumin Pro';
+  src: url('/fonts/ACUMIN-BDPRO.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --bg-primary: #f5f5f5;
+    --bg-surface: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #444444;
+    --text-muted: #888888;
+    --border-color: rgba(0, 0, 0, 0.12);
+    --border-strong: #000000;
+  }
+
+  * {
+    border-color: var(--border-color);
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+/* ===== MODERNIZ Display Headings ===== */
+/* Tight/touching letter-spacing, heavy bold geometric display font */
+.font-moderniz {
+  font-family: 'Moderniz', Impact, 'Arial Black', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: -0.065em;
+  line-height: 0.9;
+}
+
+/* Headings with touching letters within words, and distinct space between words */
+.font-moderniz-head {
+  font-family: 'Moderniz', Impact, 'Arial Black', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: -0.24em;
+  word-spacing: 0.45em;
+  line-height: 0.9;
+}
+
+/* DTO emblem heading: letters touching */
+.font-moderniz-dto {
+  font-family: 'Moderniz', Impact, 'Arial Black', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: -0.24em;
+  line-height: 0.82;
+}
+
+/* ===== Acumin Pro Body Text ===== */
+.font-acumin {
+  font-family: 'Acumin Pro', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+/* Vertical Text Utilities for Sidebar Navigation */
+.vertical-nav-label {
+  display: inline-block;
+  white-space: nowrap;
+  transform: rotate(90deg);
+  transform-origin: center center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Subtle image zoom on hover */
+.art-card-img {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+}
+
+.art-card:hover .art-card-img {
+  transform: scale(1.03);
+}
+
+/* Lenis minimal styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}

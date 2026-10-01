@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 
 const NAV_ITEMS = [
+  { id: "latest-work", label: "[ EXHIBITIONS ]" },
   { id: "artist", label: "[ THE ARTIST ]" },
-  { id: "latest-work", label: "[ LATEST WORK ]" },
   { id: "art-for-sale", label: "[ THE ARTWORK ]" },
 ];
 
-export default function SidebarNav({ activeSection = "artist" }) {
+export default function SidebarNav({ activeSection = "latest-work" }) {
   const [current, setCurrent] = useState(activeSection);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function SidebarNav({ activeSection = "artist" }) {
         aria-label="Sidebar Navigation"
         className="hidden md:flex fixed top-0 left-0 bottom-0 w-16 lg:w-20 flex-col justify-between items-center py-10 z-40 bg-[var(--bg-primary)] border-r border-[var(--border-color)] select-none"
       >
-        {NAV_ITEMS.map((item, index) => {
+        {NAV_ITEMS.map((item) => {
           const isActive = current === item.id;
           return (
             <button
@@ -61,7 +61,7 @@ export default function SidebarNav({ activeSection = "artist" }) {
             >
               <span
                 className={`vertical-nav-label tracking-[0.2em] transition-transform duration-300 ${
-                  isActive ? "text-black scale-105" : "text-neutral-700 group-hover:text-black"
+                  isActive ? "text-[var(--text-primary)] scale-105" : "text-[var(--text-muted)] group-hover:text-[var(--text-primary)]"
                 }`}
               >
                 {item.label}
@@ -83,7 +83,7 @@ export default function SidebarNav({ activeSection = "artist" }) {
               key={item.id}
               onClick={() => scrollTo(item.id)}
               className={`py-1 transition-opacity ${
-                isActive ? "text-black font-bold border-b border-black" : "text-neutral-500 hover:text-black"
+                isActive ? "text-[var(--text-primary)] font-bold border-b border-[var(--accent-silver)]" : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
               }`}
             >
               {item.label}

@@ -12,20 +12,21 @@
 @font-face {
   font-family: 'Acumin Pro';
   src: url('/fonts/ACUMIN-BDPRO.OTF') format('opentype');
-  font-weight: 700;
+  font-weight: 400 900;
   font-style: normal;
   font-display: swap;
 }
 
 @layer base {
   :root {
-    --bg-primary: #f5f5f5;
-    --bg-surface: #ffffff;
-    --text-primary: #000000;
-    --text-secondary: #444444;
-    --text-muted: #888888;
-    --border-color: rgba(0, 0, 0, 0.12);
-    --border-strong: #000000;
+    --bg-primary: #0a0a0a;
+    --bg-surface: #141414;
+    --text-primary: #e4e4e7;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --border-color: rgba(192, 192, 192, 0.12);
+    --border-strong: #C0C0C0;
+    --accent-silver: #C0C0C0;
   }
 
   * {
@@ -33,25 +34,39 @@
     box-sizing: border-box;
   }
 
-  html {
-    scroll-behavior: smooth;
+  html, body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    inset: 0;
     background-color: var(--bg-primary);
     color: var(--text-primary);
-  }
-
-  body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    overflow-x: hidden;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    touch-action: pan-x;
   }
 
   ::selection {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #C0C0C0;
+    color: #0a0a0a;
   }
+}
+
+/* ===== Noise Grain Overlay (Texture Image) ===== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url('/img/texture/texture.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
 }
 
 /* ===== MODERNIZ Display Headings ===== */
@@ -70,7 +85,6 @@
   font-family: 'Moderniz', Impact, 'Arial Black', sans-serif;
   font-weight: 900;
   font-style: normal;
-  text-transform: uppercase;
   letter-spacing: -0.24em;
   word-spacing: 0.45em;
   line-height: 0.9;
@@ -105,6 +119,39 @@
   text-transform: uppercase;
 }
 
+/* ===== Reference Navbar 14-Column Grid Layout ===== */
+.navbar-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .navbar-grid {
+    display: grid;
+    grid-template-columns: repeat(14, minmax(0, 1fr));
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+  .navbar-links {
+    grid-column: 8 / span 4;
+  }
+  .navbar-time {
+    grid-column: 12 / span 3;
+  }
+}
+
+@media (min-width: 1025px) {
+  .navbar-links {
+    grid-column: 9 / span 3;
+  }
+  .navbar-time {
+    grid-column: 13 / span 2;
+  }
+}
+
+/* ===== Artwork Card Effects ===== */
 /* Subtle image zoom on hover */
 .art-card-img {
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
@@ -112,6 +159,63 @@
 
 .art-card:hover .art-card-img {
   transform: scale(1.03);
+}
+
+/* Artwork Glow Effect — subtle ambient light on dark backgrounds */
+.art-glow {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.02);
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+.art-glow:hover {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.07), 0 0 60px rgba(192, 192, 192, 0.03);
+}
+
+/* Artwork Card Texture Grain Overlay — visible on hover for tactile feel */
+.art-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-image: url('/img/texture/texture.webp');
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.art-card:hover::after {
+  opacity: 0.18;
+}
+
+/* ===== Full-Page Detail View Slide-Up Animation ===== */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Giant Background Typography — Silver Outline Stroke ===== */
+.text-stroke-silver {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #C0C0C0;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== Hide Scrollbar (Horizontal Scroll Containers) ===== */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Lenis minimal styles */

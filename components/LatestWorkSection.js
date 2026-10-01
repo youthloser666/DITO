@@ -55,14 +55,15 @@ const BASE_WORKS = [
   },
 ];
 
-// Duplicate items 6 times to ensure a massive buffer and 100% imperceptible seamless wrap
-const SETS_COUNT = 6;
+// Duplicate items 4 times — enough for seamless wrap while keeping DOM light for mobile perf
+const SETS_COUNT = 4;
 const INFINITE_WORKS = Array.from({ length: SETS_COUNT }).flatMap((_, setIdx) =>
   BASE_WORKS.map((w) => ({ ...w, uid: `set${setIdx}-${w.id}` }))
 );
 
 export default function LatestWorkSection({ onOpenContact }) {
   const [selectedPreview, setSelectedPreview] = useState(null);
+  const isTouchRef = useRef(false);
 
   const containerRef = useRef(null);
   const jellyRef = useRef(null);
@@ -95,6 +96,11 @@ export default function LatestWorkSection({ onOpenContact }) {
     }
   }, []);
 
+  // Detect touch device once on mount to disable GPU-heavy effects on mobile
+  useEffect(() => {
+    isTouchRef.current = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  }, []);
+
   useEffect(() => {
     measureSetWidth();
     const frameId = requestAnimationFrame(measureSetWidth);
@@ -117,8 +123,8 @@ export default function LatestWorkSection({ onOpenContact }) {
         p.targetPos = p.singleSetWidth * 2;
       }
 
-      // Smooth inertia damping with silkier decay
-      const lerpFactor = p.isDragging ? 0.24 : 0.072;
+      // Smooth inertia damping — snappier on mobile for responsive feel
+      const lerpFactor = p.isDragging ? 0.35 : 0.12;
       const diff = p.targetPos - p.currentPos;
       p.currentPos += diff * lerpFactor;
       p.velocity = diff * lerpFactor;
@@ -136,17 +142,17 @@ export default function LatestWorkSection({ onOpenContact }) {
         }
       }
 
-      // Organic Jelly Effect: subtle skew and dynamic stretch based on velocity
-      const vClamped = Math.max(-50, Math.min(50, p.velocity));
-      const skewAngle = Math.max(-9, Math.min(9, -vClamped * 0.18));
-      const scaleX = Math.min(1.05, 1 + Math.abs(vClamped) * 0.001);
-      const scaleY = Math.max(0.95, 1 - Math.abs(vClamped) * 0.001);
-
       // GPU-accelerated direct DOM transform update (no re-renders)
       if (trackRef.current) {
         trackRef.current.style.transform = `translate3d(${-p.currentPos}px, 0, 0)`;
       }
-      if (jellyRef.current) {
+
+      // Organic Jelly Effect — disabled on touch devices to save GPU compositing cost
+      if (jellyRef.current && !isTouchRef.current) {
+        const vClamped = Math.max(-50, Math.min(50, p.velocity));
+        const skewAngle = Math.max(-9, Math.min(9, -vClamped * 0.18));
+        const scaleX = Math.min(1.05, 1 + Math.abs(vClamped) * 0.001);
+        const scaleY = Math.max(0.95, 1 - Math.abs(vClamped) * 0.001);
         jellyRef.current.style.transform = `skewX(${skewAngle}deg) scaleX(${scaleX}) scaleY(${scaleY})`;
       }
 
@@ -174,6 +180,9 @@ export default function LatestWorkSection({ onOpenContact }) {
     p.lastPointerX = e.clientX;
     p.lastPointerTime = performance.now();
     p.pointerVelocity = 0;
+    if (jellyRef.current) {
+      jellyRef.current.style.transition = "none";
+    }
   };
 
   const handlePointerMove = (e) => {
@@ -200,6 +209,9 @@ export default function LatestWorkSection({ onOpenContact }) {
 
     // Smooth momentum flick
     p.targetPos -= Math.max(-650, Math.min(650, p.pointerVelocity * 190));
+    if (jellyRef.current && !isTouchRef.current) {
+      jellyRef.current.style.transition = "transform 0.15s ease-out";
+    }
   };
 
   // Trackpad / Mouse Wheel Horizontal Scroll
@@ -214,17 +226,21 @@ export default function LatestWorkSection({ onOpenContact }) {
       id="latest-work"
       className="relative w-full h-full bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col justify-between overflow-hidden select-none"
     >
+      {/* Background & Hero Text Texture Overlay — Enabled on Desktop & Mobile, sits behind the carousel images */}
+      <div className="texture-bg-layer z-10" aria-hidden="true" />
+
       {/* 1. Section Header — Centered EXHIBITIONS (Original Moderniz) */}
-      <div className="relative z-10 w-full flex justify-center items-center pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-2 text-center select-none overflow-visible">
+      <div className="relative z-0 w-full flex justify-center items-center pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-2 text-center select-none overflow-visible">
         <h2 className="font-moderniz-head text-[3.2rem] sm:text-[4.6rem] md:text-[5.8rem] lg:text-[7rem] xl:text-[8.2rem] 2xl:text-[9.2rem] leading-[0.85] select-none text-[var(--text-primary)]">
           EXHIBITIONS
         </h2>
       </div>
 
-      {/* 2. Photo Carousel Container with Infinite Seamless Loop & Jelly Distortion — Lowered to bleed behind logo and contact */}
+      {/* 2. Photo Carousel Container with Infinite Seamless Loop & Jelly Distortion — Placed at z-20 so images are NOT covered by texture */}
       <div
         ref={containerRef}
-        className="relative z-10 flex-1 min-h-0 w-full flex items-end pb-2 sm:pb-3 md:pb-4 lg:pb-5 overflow-hidden cursor-grab active:cursor-grabbing select-none"
+        className="relative z-20 flex-1 min-h-0 w-full flex items-end pb-2 sm:pb-3 md:pb-4 lg:pb-5 overflow-hidden cursor-grab active:cursor-grabbing select-none"
+        style={{ touchAction: 'none' }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
@@ -237,7 +253,7 @@ export default function LatestWorkSection({ onOpenContact }) {
           className="w-full h-full flex items-end pb-1 sm:pb-2 will-change-transform"
           style={{
             transformOrigin: "50% 50%",
-            transition: physics.current.isDragging ? "none" : "transform 0.15s ease-out",
+            transition: "transform 0.15s ease-out",
           }}
         >
           {/* Continuous Infinite Slide Track */}
@@ -267,12 +283,12 @@ export default function LatestWorkSection({ onOpenContact }) {
                   </span>
                 </div>
 
-                {/* Instagram 4:5 Portrait Card Frame — Lowered & bleeding behind bottom row */}
+                {/* Instagram 4:5 Portrait Card Frame — Clean images without texture overlay for performance and visual clarity */}
                 <div className="relative h-[53vh] sm:h-[55vh] lg:h-[57vh] aspect-[4/5] overflow-hidden rounded-sm bg-neutral-900 border border-white/[0.08] shadow-2xl transition-all duration-500 group-hover:border-white/20 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.9)]">
                   <img
                     src={work.src}
                     alt={work.title}
-                    className="w-full h-full object-cover object-center group-hover:scale-[1.025] transition-transform duration-700 ease-out select-none pointer-events-none"
+                    className="w-full h-full object-cover object-center select-none pointer-events-none group-hover:scale-[1.025] transition-transform duration-700 ease-out"
                     loading="eager"
                     draggable={false}
                   />

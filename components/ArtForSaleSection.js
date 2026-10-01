@@ -96,15 +96,18 @@ export default function ArtForSaleSection({ onOpenContact }) {
       id="art-for-sale"
       className="relative w-full h-full bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col justify-between overflow-hidden select-none"
     >
+      {/* Background & Hero Text Texture Overlay — Enabled on Desktop & Mobile, sits behind artwork images */}
+      <div className="texture-bg-layer z-10" aria-hidden="true" />
+
       {/* 1. Header: 'THE ARTWORK' */}
-      <div className="relative z-10 w-full px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 pt-14 sm:pt-18 lg:pt-20 pb-1 sm:pb-2">
+      <div className="relative z-0 w-full px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 pt-20 sm:pt-24 md:pt-26 lg:pt-28 pb-1 sm:pb-2">
         <h2 className="font-moderniz-head text-[2.2rem] sm:text-[3rem] md:text-[3.8rem] lg:text-[4.4rem] xl:text-[5rem] leading-[0.88] text-right select-none whitespace-nowrap tracking-[-0.24em] [word-spacing:0.45em] text-[var(--text-primary)]">
           THE ARTWORK
         </h2>
       </div>
 
-      {/* 2. 8-Piece Grid: 4 Columns x 2 Rows — Wide gallery spacing spanning across the screen */}
-      <div className="relative z-10 w-full flex-1 min-h-0 px-6 sm:px-10 lg:px-14 xl:px-20 flex justify-center overflow-y-auto hide-scrollbar pb-24 sm:pb-28">
+      {/* 2. 8-Piece Grid: 4 Columns x 2 Rows — Placed at z-20 so artwork images are clean & not covered by texture */}
+      <div className="relative z-20 w-full flex-1 min-h-0 px-6 sm:px-10 lg:px-14 xl:px-20 flex justify-center overflow-y-auto hide-scrollbar pb-24 sm:pb-28">
         <div className="w-full max-w-[1440px] xl:max-w-[1600px] 2xl:max-w-[1760px] grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 2xl:gap-20 my-auto pt-2 pb-6">
           {artworks.map((art) => (
             <div

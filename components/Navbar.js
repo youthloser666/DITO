@@ -1,24 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
+
+function subscribeClock(callback) {
+  const interval = setInterval(callback, 1000);
+  return () => clearInterval(interval);
+}
+
+function getClockSnapshot() {
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  return `${hours}  ${minutes}`;
+}
+
+function getServerClockSnapshot() {
+  return "01  37";
+}
 
 export default function Navbar({ activeIndex = 0, onSelectSection }) {
-  const [timeStr, setTimeStr] = useState("01  37");
-  const [mounted, setMounted] = useState(false);
-
-  // Keep live local time updated (format: "HH  MM" with space gap, matching the reference)
-  useEffect(() => {
-    setMounted(true);
-    const updateTime = () => {
-      const now = new Date();
-      const hours = String(now.getHours()).padStart(2, "0");
-      const minutes = String(now.getMinutes()).padStart(2, "0");
-      setTimeStr(`${hours}  ${minutes}`);
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  const timeStr = useSyncExternalStore(subscribeClock, getClockSnapshot, getServerClockSnapshot);
 
   const navItems = [
     { id: "latest-work", label: "EXHIBITIONS", index: 0 },
@@ -75,7 +76,7 @@ export default function Navbar({ activeIndex = 0, onSelectSection }) {
               suppressHydrationWarning
               className="font-acumin text-[11px] sm:text-[12px] tracking-[0.25em] text-[var(--text-primary)] leading-[1.2]"
             >
-              {mounted ? timeStr : "01  37"}
+              {timeStr}
             </span>
           </div>
         </div>

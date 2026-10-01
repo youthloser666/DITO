@@ -55,18 +55,17 @@
 }
 
 /* ===== Noise Grain Overlay (Texture Image) ===== */
-body::before {
-  content: '';
-  position: fixed;
+/* Clean textured layer applied to background and hero headings, keeping artwork images crisp & performant on desktop and mobile */
+.texture-bg-layer {
+  position: absolute;
   inset: 0;
-  z-index: 9999;
   pointer-events: none;
-  opacity: 0.4;
   background-image: url('/img/texture/texture.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   mix-blend-mode: screen;
+  opacity: 0.4;
 }
 
 /* ===== MODERNIZ Display Headings ===== */
@@ -171,24 +170,7 @@ body::before {
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.07), 0 0 60px rgba(192, 192, 192, 0.03);
 }
 
-/* Artwork Card Texture Grain Overlay — visible on hover for tactile feel */
-.art-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background-image: url('/img/texture/texture.webp');
-  background-size: cover;
-  background-position: center;
-  mix-blend-mode: screen;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
 
-.art-card:hover::after {
-  opacity: 0.18;
-}
 
 /* ===== Full-Page Detail View Slide-Up Animation ===== */
 @keyframes fadeSlideUp {

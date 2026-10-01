@@ -17,7 +17,7 @@ export default function Footer({ onOpenShowreel }) {
           <div className="lg:col-span-8">
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold uppercase tracking-tighter text-[var(--text-primary)] leading-[0.92]">
               Got a project in mind? <br />
-              Let's discuss.
+              Let&apos;s discuss.
             </h2>
           </div>
 
